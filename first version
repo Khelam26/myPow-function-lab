@@ -1,0 +1,57 @@
+// This lab has myPow function which works the same way as pow function
+// This function takes two arguements and returns their value
+// Programmer: Khelan Modi
+// Date Modified: April 7th, 2019.
+
+#include <iostream>
+using namespace std;
+
+double myPow(double base, int expo);
+
+int main()
+{
+	system("title Select myPow - works with INTEGER exponents only  by K. Modi");
+	system("color 3f");
+
+	double x, value;
+	int y;
+
+	cout
+		<<"                                          \n"
+		<< "\t\t\t            myPow function         \n"
+		<< "\t\t\t works with INTEGER exponents ONLY \n"
+		<< "\t\t\t             by K. Modi            \n\n\n";
+
+	cout
+		<< "NOTE: The base can be either positive or negative and have a decimal point. \n"
+		<< "      The exponent can be positive or negative by I will ignore the decimal part. \n \n";
+	while (true)
+	{
+		cout << "What is the base? ";
+		cin >> x;
+		cin.ignore(200, '\n');
+
+		cout << "What is the exponent? [I will take the INTEGER part ONLY] ";
+		cin >> y;
+		cin.ignore(200, '\n');
+
+		cout << "I am about to call myPow (" << x << ", " << y << ") ...";
+		value = myPow(x, y);
+		cout << "\n";
+
+		cout << x << "^" << y << " = " << value<< ".\n\n";
+	}
+	system("pause");
+	return 0;
+}
+
+double myPow(double base, int expo)
+{
+	double total = 1;
+
+	for(int count = 1; count <= expo; count++)
+	{
+		total *= base;
+	}
+	return total;
+}
