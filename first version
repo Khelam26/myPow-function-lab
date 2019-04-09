@@ -1,5 +1,6 @@
 // This lab has myPow function which works the same way as pow function
 // This function takes two arguements and returns their value
+// myPow function lab
 // Programmer: Khelan Modi
 // Date Modified: April 7th, 2019.
 
@@ -13,11 +14,11 @@ int main()
 	system("title Select myPow - works with INTEGER exponents only  by K. Modi");
 	system("color 3f");
 
-	double x, value;
+	double x, myValue;
 	int y;
 
 	cout
-		<<"                                          \n"
+		<< "                                         \n"
 		<< "\t\t\t            myPow function         \n"
 		<< "\t\t\t works with INTEGER exponents ONLY \n"
 		<< "\t\t\t             by K. Modi            \n\n\n";
@@ -36,10 +37,10 @@ int main()
 		cin.ignore(200, '\n');
 
 		cout << "I am about to call myPow (" << x << ", " << y << ") ...";
-		value = myPow(x, y);
+		myValue = myPow(x, y);
 		cout << "\n";
 
-		cout << x << "^" << y << " = " << value<< ".\n\n";
+		cout << x << "^" << y << " = " << myValue << ".\n\n";
 	}
 	system("pause");
 	return 0;
@@ -49,7 +50,16 @@ double myPow(double base, int expo)
 {
 	double total = 1;
 
-	for(int count = 1; count <= expo; count++)
+	if (expo < 0)
+	{
+		for (int count = 0; count > expo; count--)
+		{
+			total /= base;
+		}
+		return total;
+	}
+
+	for (int count = 1; count <= expo; count++)
 	{
 		total *= base;
 	}
